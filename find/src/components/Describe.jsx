@@ -1,10 +1,25 @@
 import React from "react";
 import { Menu } from "antd";
-import { Form, Input } from 'antd';
+import { Form, Input,Upload, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import  "./Describe.css";
 const Describe = () => {
   const menus = [
     { name: "Describe your task to Experts" },
+  ];
+  const fileList = [
+    {
+      uid: '-1',
+      name: 'xxx.png',
+      status: 'done',
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    },
+    {
+      uid: '-2',
+      name: 'yyy.png',
+      status: 'error',
+    },
   ];
   const renderMenus = () => {
     return menus.map((item) => (
@@ -77,6 +92,26 @@ const Describe = () => {
       >
         <Input />
       </Form.Item>
+
+      <Form.Item
+        label="Add your image"
+        name="description"
+        rules={[
+          {
+            required: true,
+            message: 'Please Add your image!',
+          },
+        ]}
+      >
+      <Upload
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      listType="picture"
+      defaultFileList={[...fileList]}
+    >
+      <Button icon={<UploadOutlined />}>Upload</Button>
+    </Upload>
+    <br />
+    </Form.Item>
     </Form>
     </div>
   );
