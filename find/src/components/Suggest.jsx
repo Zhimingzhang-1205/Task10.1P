@@ -13,11 +13,11 @@ const Suggest = () => {
       </Menu.Item>
     ));
   };
-  const [value, setValue] = React.useState(1);
+  const [suggest, setSuggest] = React.useState(1);
 
   const onChange = e => {
     console.log('radio checked', e.target.value);
-    setValue(e.target.value);
+    setSuggest(e.target.value);
   };
 
   const onFinish = (values) => {
@@ -68,7 +68,7 @@ const Suggest = () => {
         ]}
       >
         </Form.Item>
-        <Form.Item label=" "
+      <Form.Item label=" "
         name="budget"
         rules={[
           {
@@ -76,12 +76,27 @@ const Suggest = () => {
             message: 'Please input your suggest!',
           },
         ]}>
-        <Radio.Group onChange={onChange} value={value}>
+        <Radio.Group onChange={onChange} suggest={suggest}>
         <Radio value={1}>Total</Radio>
         <Radio value={2}> Hourly rate</Radio>
-      </Radio.Group>
+        </Radio.Group>
       </Form.Item>
-
+      </Form>
+      <Form
+      name="basic"
+      labelCol={{
+        span: 8,
+      }}
+      wrapperCol={{
+        span: 16,
+      }}
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
       <Form.Item label=" "
         name="budget"
         rules={[

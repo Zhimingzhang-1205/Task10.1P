@@ -2,7 +2,9 @@ import React from "react";
 import { Menu } from "antd";
 import { Form,Radio } from 'antd';
 import  "./New.css";
-const Newtask = () => {
+
+const Newtask = (props) => {
+  
   const menus = [
     { name: "New Task" },
   ];
@@ -18,6 +20,7 @@ const Newtask = () => {
   const onChange = e => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
+    props.changeR(e.target.value)
   };
 
   

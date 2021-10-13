@@ -93,7 +93,7 @@ const Describe = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item
+      {/* <Form.Item
         label="Add your image"
         name="description"
         rules={[
@@ -111,7 +111,7 @@ const Describe = () => {
       <Button icon={<UploadOutlined />}>Upload</Button>
     </Upload>
     <br />
-    </Form.Item>
+    </Form.Item> */}
     </Form>
     </div>
   );
